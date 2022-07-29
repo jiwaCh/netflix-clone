@@ -1,6 +1,18 @@
-<strong>The website can be accessed via the link below:<strong/>
- <br>
-[netflix-clone-jiwach.vercel.app](https://netflix-clone-jiwach.vercel.app/)
+<h1>Work in progress
+
+
+</h1>
+The website can be accessed via the link below:
+ <p>
+https://netflix-clone-jiwach.vercel.app/
+</p>
+<br>
+
+
+
+
+
+
 
 
 
