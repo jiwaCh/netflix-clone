@@ -1,3 +1,10 @@
+#The website can be accessed via the link below:
+netflix-clone-jiwach.vercel.app
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
