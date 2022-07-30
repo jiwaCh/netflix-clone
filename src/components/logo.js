@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../styles/device";
 
 export const Logo = () => {
   return (
@@ -14,4 +15,8 @@ const LogoContainer = styled.div`
   color: var(--primary-red);
   font-weight: var(--font-weight-bold);
   font-size: var(--h2-size);
+
+  @media ${device.mobileM} {
+    font-size: var(--h3-size);
+  }
 `;

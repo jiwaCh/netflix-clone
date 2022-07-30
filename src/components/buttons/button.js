@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../styles/device";
 
 export const Button = ({ text }) => {
   return (
@@ -17,5 +18,9 @@ const ButtonContainer = styled.div`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media ${device.mobileXL} {
+    font-size: var(--p3-size);
   }
 `;

@@ -22,7 +22,7 @@ const faqData = [
 ];
 
 export const FAQ = () => {
-  const [selectedCardIndex, setSelectedCardIndex] = useState(0);
+  const [selectedCardIndex, setSelectedCardIndex] = useState(null);
 
   const handleOnCardClick = (index) => {
     if (index !== selectedCardIndex) {

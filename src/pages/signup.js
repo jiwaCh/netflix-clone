@@ -3,6 +3,11 @@ import { Button } from "../components/buttons/button";
 import { Logo } from "../components/logo";
 import headerBackgroundImage from "./../assets/images/header/hbg-1.jpg";
 import TvImage from "./../assets/images/tv.png";
+import PhoneImage from "./../assets/images/phone.jpg";
+import PhoneInsideImage from "./../assets/images/phone-inside-image.png";
+import DevicePileImage from "./../assets/images/device-pile.png";
+import ChildrenImage from "./../assets/images/children.png";
+import { device } from "../styles/device";
 
 import { useEffect, useState } from "react";
 import TvVideo from "./../assets/videos/tv-video.m4v";
@@ -21,19 +26,19 @@ const data = [
   {
     title: "Download your programmes to watch offline.",
     subtitle: "Save your favourites easily and always have something to watch.",
-    image: TvImage,
+    image: PhoneImage,
   },
   {
     title: "Watch everywhere.",
     subtitle:
       "Stream unlimited films and TV programmes on your phone, tablet, laptop and TV without paying more.",
-    image: TvImage,
+    image: DevicePileImage,
   },
   {
     title: "Create profiles for children.",
     subtitle:
       "Send children on adventures with their favourite characters in a space made just for them – free with your membership.",
-    image: TvImage,
+    image: ChildrenImage,
   },
 ];
 
@@ -42,8 +47,8 @@ export const SignUp = () => {
     console.log();
   }, []);
   return (
-    <>
-      <Header>
+    <Body>
+      {/* <Header>
         <HeaderTopRow>
           <Logo />
           <Button text={"Sign In"} />
@@ -53,45 +58,48 @@ export const SignUp = () => {
           <H3>Watch anywhere. Cancel at any time. </H3>
           <SignUpEmailAddress />
         </HeaderCenterContent>
-      </Header>
+      </Header> */}
       {data.map(({ title, subtitle, image }, key) => (
         <Card key={key} index={key}>
           <CardTextContainer>
             <H2>{title}</H2>
             <H3>{subtitle}</H3>
           </CardTextContainer>
-          <CardImageContainer>
-            <img src={image} alt="" style={{ width: "500px" }} />
-          </CardImageContainer>
+
+          <Image src={image} alt="" />
         </Card>
       ))}
 
-      <SemiFooter>
+      {/* <SemiFooter>
         <FAQ />
 
         <SemiFooterSignUpEmailAddressContainer>
           <SignUpEmailAddress />
         </SemiFooterSignUpEmailAddressContainer>
       </SemiFooter>
-      <Footer />
-    </>
+      <Footer /> */}
+    </Body>
   );
 };
 
-export const Test = () => {
-  return (
-    <>
-      {data.map(({ title, subtitle, image, key }) => (
-        <div key={key}>
-          <div>
-            {title} {subtitle}
-          </div>
-          <img src={require(image)} alt="" style={{ width: "500px" }} />
-        </div>
-      ))}
-    </>
-  );
-};
+const Image = styled.img`
+  margin: 0 2%;
+  width: 530px;
+  height: 397px;
+  @media ${device.laptop} {
+    width: 353px;
+    height: 264px;
+  }
+
+  @media ${device.mobileL} {
+    width: 279px;
+    height: 208px;
+  }
+`;
+
+const Body = styled.div`
+  background-color: var(--light-gray);
+`;
 
 const SemiFooter = styled.div`
   background-color: black;
@@ -111,16 +119,31 @@ const CardTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 100px;
+  /* margin: 0 100px; */
   position: relative;
+  max-width: 550px;
+  margin: 0 2%;
 `;
 const Card = styled.div`
   background-color: black;
-  height: 500px;
+  height: max-content;
+  padding: 100px 50px;
   display: flex;
+  justify-content: center;
+
   margin-bottom: 10px;
 
   flex-direction: ${({ index }) => (index % 2 === 0 ? "row" : "row-reverse")};
+
+  @media ${device.laptop} {
+    padding: 50px 25px;
+  }
+
+  @media ${device.tablet} {
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 25px;
+  }
 
   position: relative;
 `;
@@ -150,7 +173,14 @@ const HeaderTopRow = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
   padding: 20px 60px;
+  width: 90vw;
+  max-width: 1800px;
+
+  @media ${device.tablet} {
+    background-color: yellow;
+  }
 `;
 
 const Header = styled.div`
