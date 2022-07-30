@@ -11,6 +11,7 @@ import { device } from "../styles/device";
 
 import { useEffect, useState } from "react";
 import TvVideo from "./../assets/videos/tv-video.m4v";
+import DevicesPileVideo from "./../assets/videos/video-devices.m4v";
 import { FAQ } from "../components/faq";
 import { SignUpEmailAddress } from "./../components/form/signup-email-address";
 import { Footer } from "../components/footer";
@@ -22,23 +23,27 @@ const data = [
       "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
     // image: "./../assets/images/tv.png",
     image: TvImage,
+    video: TvVideo,
   },
   {
     title: "Download your programmes to watch offline.",
     subtitle: "Save your favourites easily and always have something to watch.",
     image: PhoneImage,
+    video: null,
   },
   {
     title: "Watch everywhere.",
     subtitle:
       "Stream unlimited films and TV programmes on your phone, tablet, laptop and TV without paying more.",
     image: DevicePileImage,
+    video: null,
   },
   {
     title: "Create profiles for children.",
     subtitle:
       "Send children on adventures with their favourite characters in a space made just for them – free with your membership.",
     image: ChildrenImage,
+    video: null,
   },
 ];
 
@@ -59,16 +64,35 @@ export const SignUp = () => {
           <SignUpEmailAddress />
         </HeaderCenterContent>
       </Header> */}
-      {data.map(({ title, subtitle, image }, key) => (
+      {data.map(({ title, subtitle, image, video }, key) => (
         <Card key={key} index={key}>
           <CardTextContainer>
             <H2>{title}</H2>
             <H3>{subtitle}</H3>
           </CardTextContainer>
 
-          <Image src={image} alt="" />
+          <ImageContainer style={{ position: "relative" }}>
+            <img src={image} alt="" style={{ position: "absolute" }} />
+            <video autoPlay loop muted src={video}></video>
+          </ImageContainer>
         </Card>
       ))}
+
+      {/* <div style={{ position: "relative" }}>
+        <img
+          src={TvImage}
+          alt=""
+          style={{ width: "500px", position: "absolute" }}
+        />
+        <video
+          width="500px"
+          autoPlay
+          loop
+          muted
+          src={TvVideo}
+          style={{ width: "500px" }}
+        ></video>
+      </div> */}
 
       {/* <SemiFooter>
         <FAQ />
@@ -82,18 +106,35 @@ export const SignUp = () => {
   );
 };
 
-const Image = styled.img`
-  margin: 0 2%;
-  width: 530px;
-  height: 397px;
-  @media ${device.laptop} {
-    width: 353px;
-    height: 264px;
+const ImageContainer = styled.div`
+  img {
+    margin: 0 2%;
+    width: 530px;
+    height: 397px;
+    @media ${device.laptop} {
+      width: 353px;
+      height: 264px;
+    }
+
+    @media ${device.mobileL} {
+      width: 279px;
+      height: 208px;
+    }
   }
 
-  @media ${device.mobileL} {
-    width: 279px;
-    height: 208px;
+  video {
+    margin: 3% 6%;
+    width: 442px;
+    height: 330px;
+    @media ${device.laptop} {
+      width: 294px;
+      height: 303px;
+    }
+
+    @media ${device.mobileL} {
+      width: 260px;
+      height: 190px;
+    }
   }
 `;
 
@@ -200,21 +241,3 @@ const Header = styled.div`
 //   /* position: relative;
 //   width: 1000px; */
 // `;
-
-{
-  /* <img
-            src={TvImage}
-            alt=""
-            style={{ width: "500px", position: "absolute" }}
-          /> */
-}
-{
-  /* <video
-            width="350px"
-            autoPlay
-            loop
-            muted
-            src={TvVideo}
-            style={{ position: "absolute", top: 80, right: 100 }}
-          ></video> */
-}
