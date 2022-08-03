@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+/*
+TODO
+- css redesign
+*/
+
 const listData = [
   {
     title: "FAQHelp",

@@ -15,12 +15,18 @@ import { FAQ } from "../components/faq";
 import { SignUpEmailAddress } from "./../components/form/signup-email-address";
 import { Footer } from "../components/footer";
 
+/*
+TODO:
+-make page responsive
+-embed the video inside the image
+-make some of the reusable styled component exportable / global
+*/
+
 const data = [
   {
     title: "Enjoy on your TV.",
     subtitle:
       "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
-    // image: "./../assets/images/tv.png",
     image: TvImage,
   },
   {
@@ -48,7 +54,7 @@ export const SignUp = () => {
   }, []);
   return (
     <Body>
-      {/* <Header>
+      <Header>
         <HeaderTopRow>
           <Logo />
           <Button text={"Sign In"} />
@@ -58,7 +64,7 @@ export const SignUp = () => {
           <H3>Watch anywhere. Cancel at any time. </H3>
           <SignUpEmailAddress />
         </HeaderCenterContent>
-      </Header> */}
+      </Header>
       {data.map(({ title, subtitle, image }, key) => (
         <Card key={key} index={key}>
           <CardTextContainer>
@@ -70,14 +76,14 @@ export const SignUp = () => {
         </Card>
       ))}
 
-      {/* <SemiFooter>
+      <SemiFooter>
         <FAQ />
 
         <SemiFooterSignUpEmailAddressContainer>
           <SignUpEmailAddress />
         </SemiFooterSignUpEmailAddressContainer>
       </SemiFooter>
-      <Footer /> */}
+      <Footer />
     </Body>
   );
 };
@@ -200,21 +206,3 @@ const Header = styled.div`
 //   /* position: relative;
 //   width: 1000px; */
 // `;
-
-{
-  /* <img
-            src={TvImage}
-            alt=""
-            style={{ width: "500px", position: "absolute" }}
-          /> */
-}
-{
-  /* <video
-            width="350px"
-            autoPlay
-            loop
-            muted
-            src={TvVideo}
-            style={{ position: "absolute", top: 80, right: 100 }}
-          ></video> */
-}

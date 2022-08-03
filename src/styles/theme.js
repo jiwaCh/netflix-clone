@@ -184,7 +184,7 @@ button {
 }
 
 .slick-dots {
-  position: asbolute;
+  position: absolute;
 }
 
 .svg-defs {

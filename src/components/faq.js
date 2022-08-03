@@ -81,6 +81,24 @@ const AnswerContainer = styled.div`
   color: var(--light-text);
   margin-top: 1px;
   background-color: var(--light-gray);
+  padding: 20px;
+  height: max-content;
+
+  overflow: hidden;
+
+  display: ${(props) =>
+    props.selectedCardIndex === props.index ? "block" : "none"};
+
+  transition: all 0.25s linear;
+`;
+
+/*
+// below is the code the animation of faq opening and closing -- delete if certain the functionality is not needed
+const AnswerContainer = styled.div`
+  font-size: var(--h3-size);
+  color: var(--light-text);
+  margin-top: 1px;
+  background-color: var(--light-gray);
 
   overflow: hidden;
 
@@ -89,8 +107,9 @@ const AnswerContainer = styled.div`
 
   padding: ${(props) =>
     props.selectedCardIndex === props.index ? "20px " : "0 20px"};
-  transition: all 0.25s linear;
+  transition: all 0.2s linear;
 `;
+*/
 const CardContainer = styled.div`
   margin-top: 10px;
   width: 800px;
